@@ -469,7 +469,7 @@ void CLMiner::enumDevices(std::map<string, DeviceDescriptor>& _DevicesCollection
     {
         std::string platformName = platforms.at(pIdx).getInfo<CL_PLATFORM_NAME>();
         ClPlatformTypeEnum platformType = ClPlatformTypeEnum::Unknown;
-        if (platformName == "AMD Accelerated Parallel Processing")
+        if (platformName == "AMD Accelerated Parallel Processing" || platformName == "Apple")
             platformType = ClPlatformTypeEnum::Amd;
         else if (platformName == "Clover")
             platformType = ClPlatformTypeEnum::Clover;

@@ -114,8 +114,8 @@ std::string ProgPow::getKern(uint64_t prog_seed, kernel_t kern)
         ret << "inline void progPowLoop(const uint32_t loop,\n";
         ret << "        volatile uint32_t mix_arg[PROGPOW_REGS],\n";
         ret << "        __global const dag_t *g_dag,\n";
-        ret << "        __local const uint32_t c_dag[PROGPOW_CACHE_WORDS],\n";
-        ret << "        __local uint64_t share[GROUP_SHARE],\n";
+        ret << "        const uint32_t c_dag[PROGPOW_CACHE_WORDS],\n";
+        ret << "        uint64_t share[GROUP_SHARE],\n";
         ret << "        const bool hack_false)\n";
     }
     ret << "{\n";

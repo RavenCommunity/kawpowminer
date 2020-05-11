@@ -174,8 +174,8 @@ ethash_search(__global struct SearchResults* restrict g_output, __constant hash3
     if (g_output->abort)
         return;
 
-    __local shuffle_t share[HASHES_PER_GROUP];
-    __local uint32_t c_dag[PROGPOW_CACHE_WORDS];
+    shuffle_t share[HASHES_PER_GROUP];
+    uint32_t c_dag[PROGPOW_CACHE_WORDS];
 
     uint32_t const lid = get_local_id(0);
     uint32_t const gid = get_global_id(0);

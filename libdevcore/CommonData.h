@@ -244,6 +244,10 @@ std::string getFormattedHashes(double _hr, ScaleSuffix _suffix = ScaleSuffix::Ad
 std::string getFormattedMemory(
     double _mem, ScaleSuffix _suffix = ScaleSuffix::Add, int _precision = 2);
 
+/// Formats elapsed Seconds
+std::string getFormattedElapsed(
+    double _mem, ScaleSuffix _suffix = ScaleSuffix::Add, int _precision = 2);
+
 /// Adjust string to a fixed length filling chars to the Left
 std::string padLeft(std::string _value, size_t _length, char _fillChar);
 

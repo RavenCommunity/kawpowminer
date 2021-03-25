@@ -476,6 +476,8 @@ void CUDAMiner::search(
     hash64_t* dag;
     get_constants(&dag, NULL, NULL, NULL);
 
+    auto search_start = std::chrono::steady_clock::now();
+
     // prime each stream, clear search result buffers and start the search
     uint32_t current_index;
     for (current_index = 0; current_index < m_settings.streams;
@@ -574,8 +576,10 @@ void CUDAMiner::search(
                     Farm::f().submitProof(Solution{
                         nonce, mixHashes[i], w, std::chrono::steady_clock::now(), m_index});
 
+                    double d = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - search_start).count(); 
+                    
                     cudalog << EthWhite << "Job: " << w.header.abridged() << " Sol: 0x"
-                            << toHex(nonce) << EthReset;
+                            << toHex(nonce) << EthLime " found in " << dev::getFormattedElapsed(d) << EthReset;
                 }
             }
         }

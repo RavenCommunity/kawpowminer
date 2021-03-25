@@ -188,7 +188,7 @@ std::string dev::getFormattedMemory(double _mem, ScaleSuffix _suffix, int _preci
 
 std::string dev::getFormattedElapsed(double _hr, ScaleSuffix _suffix, int _precision)
 {
-    static string suffixes[] = {"sec", "ms"};
+    static string suffixes[] = {"ms", "sec"};
     return dev::getScaledSize(_hr, 1000.0, _precision, suffixes, 4, _suffix);
 }
 

@@ -68,8 +68,8 @@ file(GLOB headers CUDAMiner.h CUDAMiner_cuda.h ${CMAKE_CURRENT_BINARY_DIR}/CUDAM
 cuda_add_library(ethash-cuda STATIC ${sources} ${headers})
 add_dependencies(ethash-cuda cuda_kernel)
 # Cmake doesn't handle nvrtc automatically
-find_library(CUDA_nvrtc_LIBRARY NAMES nvrtc PATHS ${CUDA_TOOLKIT_ROOT_DIR} PATH_SUFFIXES lib64 lib/x64 lib64/stubs lib/x64/stubs lib NO_DEFAULT_PATH)
-find_library(CUDA_cuda_LIBRARY NAMES cuda PATHS ${CUDA_TOOLKIT_ROOT_DIR} PATH_SUFFIXES lib64 lib/x64 lib64/stubs lib/x64/stubs lib NO_DEFAULT_PATH)
+find_library(CUDA_nvrtc_LIBRARY NAMES nvrtc PATHS ${CUDA_TOOLKIT_ROOT_DIR} PATH_SUFFIXES lib/x86_64-linux-gnu lib64 lib/x64 lib64/stubs lib/x64/stubs lib NO_DEFAULT_PATH)
+find_library(CUDA_cuda_LIBRARY NAMES cuda PATHS ${CUDA_TOOLKIT_ROOT_DIR} PATH_SUFFIXES lib/x86_64-linux-gnu lib64 lib/x64 lib64/stubs lib/x64/stubs lib NO_DEFAULT_PATH)
 target_link_libraries(ethash-cuda ethcore ethash::ethash progpow Boost::thread)
 target_link_libraries(ethash-cuda ${CUDA_nvrtc_LIBRARY} ${CUDA_cuda_LIBRARY})
 target_include_directories(ethash-cuda PUBLIC ${CUDA_INCLUDE_DIRS})

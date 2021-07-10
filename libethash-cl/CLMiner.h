@@ -26,6 +26,7 @@
 #define CL_HPP_TARGET_OPENCL_VERSION 120
 #define CL_HPP_MINIMUM_OPENCL_VERSION 120
 #include "CL/cl2.hpp"
+#include <CL/cl_ext.h>
 #pragma GCC diagnostic pop
 
 // macOS OpenCL fix:
@@ -35,6 +36,10 @@
 
 #ifndef CL_DEVICE_COMPUTE_CAPABILITY_MINOR_NV
 #define CL_DEVICE_COMPUTE_CAPABILITY_MINOR_NV 0x4001
+#endif
+
+#ifndef CL_DEVICE_TOPOLOGY_AMD
+#define CL_DEVICE_TOPOLOGY_AMD  0x4037
 #endif
 
 namespace dev
